@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const Article = require('./models/articleModel');
+
 
 const app = express();
 
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/wikiDB", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 
 // Chain route handlers for /articles route for GET, POST, and DELETE requests
 app
