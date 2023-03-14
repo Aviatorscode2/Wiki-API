@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const Article = require('./models/articleModel');
+const PORT = process.env.PORT;
 
 
 const app = express();
@@ -83,6 +84,6 @@ app
 
 
 
-app.listen(3000, function() {
-    console.log("Server started on port 3000");
+app.listen(PORT, function() {
+    console.log("Server started on port 5001");
 });
